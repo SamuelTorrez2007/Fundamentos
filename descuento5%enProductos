@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    float a,b,c,f;
+    cout<<"Descuento del 5% para su compra"<<endl;
+    cout<<"Ingrese el precio de su primera compra: "<<endl;
+    cin>>a;
+    cout<<"Ingrese el precio de su segunda compra: "<<endl;
+    cin>>b;
+    c=(a+b)*0.05;
+    f=(a+b)-c;
+    cout<<"El precio final de sus compras con el descuento aplicado es de: "<<f<<"bs";
+    return 0;
+}
