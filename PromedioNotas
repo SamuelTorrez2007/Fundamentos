@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    float a,b,c,promedio;
+    string nombre;
+    
+    cout<<"Promedio de notas"<<endl;
+    cout<<"Ingresar su nombre: "<<endl;
+    cin>>nombre;
+    cout<<"Ingresar primera nota: "<<endl;
+    cin>>a;
+    cout<<"Ingresar segunda nota: "<<endl;
+    cin>>b;
+    cout<<"Ingresar tercer nota: "<<endl;
+    cin>>c;
+    promedio=(a+b+c)/3;
+    cout<<"El estudiante "<<nombre<< " tiene las siguientes notas: "<<endl;
+    cout<<"La nota de su primer parcial es: "<<a<<endl;
+    cout<<"La nota de su segundo parcial es: "<<b<<endl;
+    cout<<"La nota de su tercer parcial es: "<<c<<endl;
+    cout<<"Su promedio es: "<<promedio;
+
+    return 0;
+}
