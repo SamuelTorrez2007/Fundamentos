@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    float a=0.0;
+    int b=0;
+    cout<<"Calculadora de promedio"<<endl;
+    cout<<"Ingrese el primer numero: ";
+    cin>>b;
+    a+=b;
+    cout<<"Ingrese el segundo numero: ";
+    cin>>b;
+    a+=b;
+    cout<<"Ingrese el tercer numero: ";
+    cin>>b;
+    a+=b;
+    cout<<"Ingrese el cuarto numero: ";
+    cin>>b;
+    a+=b;
+    cout<<"Ingrese el quinto numero: ";
+    cin>>b;
+    a+=b;
+    cout<<"El promedio final es: "<<(a/5.0);
+    
+    return 0;
+}
