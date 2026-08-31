@@ -1,0 +1,120 @@
+#include <iostream>
+using namespace std;
+
+bool esBisiesto(int anio) {
+    return (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);
+}
+
+bool esFechaValida(int d, int m, int a) {
+
+    if (a < 1 || m < 1 || m > 12) {
+        return false;
+    }
+
+    int diasPorMes[] = {
+        0, 31, 28, 31, 30, 31,
+        30, 31, 31, 30, 31, 30, 31
+    };
+
+    int maxDias = diasPorMes[m];
+
+    if (m == 2 && esBisiesto(a)) {
+        maxDias = 29;
+    }
+
+    return d >= 1 && d <= maxDias;
+}
+
+long long diasTotales(int d, int m, int a) {
+
+    int diasPorMes[] = {
+        0, 31, 28, 31, 30, 31,
+        30, 31, 31, 30, 31, 30, 31
+    };
+
+    long long total = d;
+
+    for (int i = 1; i < m; i++) {
+        total += diasPorMes[i];
+    }
+    if (m > 2 && esBisiesto(a)) {
+        total++;
+    }
+
+    int aAnt = a - 1;
+
+    total += (long long)aAnt * 365;
+    total += aAnt / 4;
+    total -= aAnt / 100;
+    total += aAnt / 400;
+
+    return total;
+}
+
+int main() {
+
+    int dNac, mNac, aNac;
+    int dAct, mAct, aAct;
+
+
+
+    do {
+        cout << "Ingrese fecha de nacimiento (Dia Mes Anio): ";
+
+        cin >> dNac >> mNac >> aNac;
+
+    
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+
+            cout << "Error: debe ingresar tres numeros.\n";
+            continue;
+        }
+
+        if (!esFechaValida(dNac, mNac, aNac)) {
+            cout << "Fecha invalida. Intente de nuevo.\n";
+        }
+
+    } while (!esFechaValida(dNac, mNac, aNac));
+
+
+
+
+    do {
+        cout << "Ingrese fecha actual (Dia Mes Anio): ";
+
+        cin >> dAct >> mAct >> aAct;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+
+            cout << "Error: debe ingresar tres numeros.\n";
+            continue;
+        }
+
+        if (!esFechaValida(dAct, mAct, aAct)) {
+            cout << "Fecha invalida. Intente de nuevo.\n";
+        }
+
+    } while (!esFechaValida(dAct, mAct, aAct));
+
+
+    long long diasNac = diasTotales(dNac, mNac, aNac);
+    long long diasAct = diasTotales(dAct, mAct, aAct);
+
+    if (diasAct < diasNac) {
+
+        cout << "\nError: la fecha actual no puede ser "
+             << "anterior a la fecha de nacimiento.\n";
+
+    } else {
+
+        cout << "\nEdad total en dias: "
+             << diasAct - diasNac
+             << " dias." << endl;
+    }
+
+    return 0;
+}
