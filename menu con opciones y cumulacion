@@ -1,0 +1,72 @@
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+    float
+    hamburguesas, hamburguesasqueso, papasfritas, soda, total, cantidad, nmero, cantham, canthamq, cantpapas, cantsoda; 
+    int opcion;
+    double precio=0, suma=0; //suma es el acumulador
+    do{
+    cout<<"----Menú----: "<<endl;
+    cout<<"1-hamburguesas (3bs): "<<endl;
+    cout<<"2-hambrugesas queso(5bs): "<<endl;
+    cout<<"3-papas fritas(2bs): "<<endl;
+    cout<<"4-soda(2.5): "<<endl;
+    cout<<"0-salir: "<<endl;
+    cout<<"Seleccione un número (0-4): "<<endl;
+    cin>>opcion;
+    switch (opcion) {
+        case 1:
+            cout<<"Elegiste la opció 1: "<<endl;
+            precio=3;
+            break;
+        case 2:
+            cout<<"Elegiste la opción 2: "<<endl;
+            precio=5;
+            break;
+        case 3:
+            cout<<"Elegsite la opción 3: "<<endl;
+            precio=2;
+            break;
+        case 4:
+            cout<<"Elegiste la opción 4: "<<endl;
+            precio=2.5;
+            break;
+        case 0:
+            cout<<"Salir";
+            break;
+        default:
+            cout<<"opción invalida: ";
+    }
+    if(opcion>0 && opcion <=4) {
+    cout<<"Ingresar la cantidad: ";
+    cin>>cantidad;
+    total=precio*cantidad;
+    suma=suma+total;
+    if (opcion==1){
+        hamburguesas=hamburguesas + total; //acumulador
+        cantham=cantham+cantidad;} //contador
+    else
+        if (opcion==2){
+            hamburguesasqueso=hamburguesasqueso + total; //acumulador
+            canthamq=canthamq+cantidad;} //contador 
+        else 
+            if (opcion==3){
+                papasfritas=papasfritas + total; //acumulador
+                cantpapas=cantpapas+cantidad;} //contador 
+            else
+                if (opcion==4){
+                    soda=soda + total; //acumulador
+                    cantsoda=cantsoda+cantidad;} //contador 
+        }
+}while (opcion!=0);
+cout<<"	ITEM					CANTIDAD 		TOTAL PARCIAL"<<endl;
+cout<<"Hamburguesas  (3Bs)				"<<cantham<<"\t"<<hamburguesas<<endl;			
+cout<<"Hamburguesas con queso  (5Bs)	"<<canthamq<<"\t"<<hamburguesasqueso<<endl;		
+cout<<"Papas fritas  (2Bs)				"<<cantpapas<<"\t"<<papasfritas<<endl;
+cout<<"Soda  (2.5Bs)			    	"<<cantsoda<<"\t"<<soda<<endl;return 0;
+cout<<"TOTAL 			            	"<<cantham+canthamq+cantpapas+cantsoda<<"\t"<<suma<<endl;
+return 0;
+}
