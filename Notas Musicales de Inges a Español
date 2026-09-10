@@ -1,0 +1,43 @@
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    char nota;
+    cout<<"Ingrese la letra de la nota musical (C, D, E, F, G, A, B): ";
+    cin>> nota;
+    
+    switch (nota) {
+        case 'C':
+        case 'c':
+            cout<<"La nota es: Do"<<endl;
+            break;
+        case 'D':
+        case 'd':
+            cout<<"La nota es: Re"<<endl;
+            break;
+        case 'E':
+        case 'e':
+            cout<<"La nota es: MI"<<endl;
+            break;
+        case 'F':
+        case 'f':
+            cout<<"La nota es: Fa"<<endl;
+            break;
+        case 'G':
+        case 'g':
+            cout<<"La nota es: Sol"<<endl;
+            break;
+        case 'A':
+        case 'a':
+            cout<<"La nota es: La"<<endl;
+            break;
+        case 'B':
+        case 'b':
+            cout<<"La nota es: Si"<<endl;
+            break;
+    }
+
+    return 0;
+}
