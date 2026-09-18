@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingresar la cantidad de numeros a procesar: ";
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "La cantidad debe ser mayor a 0." << endl;
+        return 0;
+    }
+
+    int m, mayor, menor, suma = 0;
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingresa un numero: ";
+        cin >> m;
+
+        if (i == 0) {
+            mayor = m;
+            menor = m;
+        } else {
+            if (m > mayor) {
+                mayor = m;
+            }
+            if (m < menor) {
+                menor = m;
+            }
+        }
+        suma += m;
+    }
+
+    double promedio = static_cast<double>(suma) / n;
+
+    cout << "El promedio es: " << promedio << endl;
+    cout << "El mayor es: " << mayor << endl;
+    cout << "El menor es: " << menor << endl;
+
+    return 0;
+}
