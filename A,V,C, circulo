@@ -1,0 +1,22 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    float radio, volumen, circunferencia, area, d;
+    cout<<"Ingresen el diametro: ";
+    cin>>d;
+    if(d<=0)
+        cout<<"Número invalido";
+    else {    
+        radio=d/2;
+        circunferencia=2*3.1415*radio;
+        cout<<"La circunferencia es: "<<circunferencia<<endl;
+        area=3.1415*pow(radio,2);
+        cout<<"El area es: "<<area<<endl;
+        volumen=(4/3.0)*(3.1415)*pow(radio,3);
+        cout<<"El volumen es: "<<volumen<<endl;
+    }
+    return 0;
+}
