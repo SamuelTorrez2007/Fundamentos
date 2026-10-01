@@ -1,0 +1,37 @@
+
+
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+int evaluador(double r);
+
+int main(){
+    double r,re;   
+    cout<<"Ingrese un numero real: ";
+    cin>>r;
+    re=evaluador(r);
+    cout<<"El resultado es: "<<re;
+    return 0;
+}
+
+int evaluador(double r){
+    if (r>0){
+        return 1;
+    }
+    if (r<0){
+        return -1;
+    }
+    if (r==0)
+        return 0;
+        
+}
+
+    
+    
+    
