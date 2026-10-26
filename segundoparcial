@@ -1,0 +1,63 @@
+1.- 1.- a) x=5 e y=2. Se evalúa combinar (5, 2) se llama multiplicar(5) ,que calcula 5x2=10 y retorna 10. 
+    b) Primera llamada (combinar): Desde main () , la función combinar (x, y) es invocada al evaluarse la asignación de la variable taotal.
+    segunda llamada (duplicar): Una vez dentro del cuerpo de combinar () ,el compilador debe resolver la expresión duplicar(a) + b. Por lo tanto, se realiza la llamada a duplicar (a) pasando el valor de a(5). Retorno de duplicar: La función duplicar() procesa el valor, retorna 10 y devuelve el contro a combinar(). Finalización de combinar: combinar() suma 10+2=12 y retorna 12 a main().
+    c) Valores de x e y después de ejecutar(x,y). El primer parámetro de ajustar() está definido por referencia (int &dato). Por ello, dato apunta directamente a la variable x de main() .La instrucción dato = dato - cambio; resta 5 - 2, modificando a x directamente a 3. El segundo parámetro está definido por el valor (int cambio). Recibe una copia de y. La instrucción cambio = cambio + 4; cambia el valor de la variable local cambio a 6, pero no altera la variable original y en main(), que permanece en 2. 
+    d) Valor retornado: 10. Por qué x no cambia: Los parámetros de las funcioes combinar(int a, int b) y duplicar(int valor) son pasados por valor (copia). Al llamar a duplicar (a), se crea una nueva variable local valor que almacena una copia del valor de a. Toda modificación en valor afecta únicamente al entrono local de esa función y no a la variable x declarada en main().
+    e) Efecto si dato en ajustar() se recibiera por valor. Si el parámetro fuera void ajustar(int dato, int cambio) (sin el operador &): dato sería una copia local del vaor de x. La operación dato= dato - cambio; modficaría solo dicha variable local y la modificiación se perdería al salir de la función. El valor final de x en main() permanecería en 5 en lugar de cambiar a 3. 
+
+2.- 
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+	string nombre;
+	double horasTrabajadas, pagoPorHora, porcentajeBono;
+	int diasTarde;
+
+	cout << "==SISTEMAS DE CÁLCULO DE SALARIOS ===" << endl;
+	cout << "Ingrese el nombre del empleado: ";
+	getline(cin, nombre);
+
+	cout << "Ingrese las horas trabajadas en el mes: ";
+	cin >> horasTrabajadas;
+
+	cout << "Ingrese el pago por hora: ";
+	cin >> pagoPorHora;
+
+	cout << "Ingrese el numero de dias que llego tarde: ";
+	cin >> diasTarde;
+
+	cout << "Ingrese el porcentaje de bonificacion apicable (ej. 10 para 10%): ";
+	cin >> porcentajeBono;
+
+	double salarioBruto = horasTrabajadas * pagoPorHora;
+
+	double penalizacion = 0.0;
+	if (diasTarde > 3) {
+		penalizacion = salarioBruto * 0.05;
+	}
+
+	double bono = salarioBruto * (porcentajeBono / 100.0);
+
+	double salarioNeto = salarioBruto + bono - penalizacion;
+
+	cout << "\n--------------------------------------" << endl;
+	cout << "RESUMEN DE PAGO" << endl;
+	cout << "---------------------------------------" << endl;
+	cout << fixed << setprecision(2);
+	cout << "Empleado:            " << nombre << endl;
+	cout << "Salario Bruto:        $" << salarioBruto << endl;
+	cout << "Penalizacion (5%):    $" << penalizacion << endl;
+	cout << "Bono:                 $" << bono << endl;
+	cout << "Salario Neto Final:   $" << salarioNeto << endl;
+	cout << "----------------------------------------" << endl;
+
+	return 0;
+}
+
+
+    
