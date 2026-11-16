@@ -28,12 +28,8 @@ int nUsuarios = 0;
 int nPersonas = 0;
 
 //Prototipos
-void registrarUsuario() {
-
-}
-bool login() {
-
-}
+void registrarUsuario();
+bool login();
 int main()
 {
 	int opcion;
@@ -92,14 +88,14 @@ void registrarUsuario() {
 }
 
 bool login() {
-	string nobmre, clave; 
+	string nombre, clave; 
 	cout << "\n Iniciar sesion \n";
 	cout << "Uusario: ";
 	cin >> nombre;
 	cout << "Contrasnia: ";
 	cin >> clave;
 	for (int i = 0; i < nUsuarios; i++) {
-		if ((usuarios[i].nombre == nombre) && (usuarios[i].clave)) {
+		if ((usuarios[i].nombre == nombre) && (usuarios[i].clave == clave)) {
 			cout << "Bienvenido" << nombre;
 			return true;
 		}
