@@ -1,0 +1,111 @@
+#include <iostream>
+#include <string>
+#define MAX 100
+
+using namespace std;
+
+//variables globales
+
+//Estructuras
+struct Usuario {
+	string nombre;
+	string clave;
+};
+
+struct Persona {
+	string nombre;
+	string fechanac;
+	string ci;
+	string direccionM;
+	string telefono;
+};
+
+//Arreglo de las estructuras declaradas
+Usuario usuarios[MAX];
+Persona personas[MAX];
+
+int nUsuarios = 0;
+int nPersonas = 0;
+
+//Prototipos
+void registrarUsuario() {
+
+}
+bool login() {
+
+}
+int main()
+{
+	int opcion;
+	do {
+		cout << "Sistema de Login" << endl;
+		cout << "1. Regsitrar usuario" << endl;
+		cout << "2. Listar usuarios" << endl;
+		cout << "3. Iniciar sesion" << endl;
+		cout << "0. Salir " << endl;
+		cout << "4 Borrar usuario" << endl;
+		cout << "5. Modificar usuario" << endl; 
+		cout << "Seleccione una opcino: ";
+		cin >> opcion;
+		switch (opcion) {
+			case 1:
+				registrarUsuario();
+				break;
+			case 2:
+				break;
+			case 3: 
+				if (login())
+					//menu personal
+					cout << "Ingresando al menu personas" << endl;					
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 0:
+				break;
+			default:
+				break;
+			}
+	} while (opcion != 0);
+	return 0;
+}
+
+
+void registrarUsuario() {
+	string nombre;
+	cout << "\n Registrar Usuario \n";
+	cout << "Ingrese usuario: ";
+	cin >> nombre;
+	// ERROR
+	for (int i= 0; i< nUsuarios; i++)
+		if (usuarios[i].nombre == nombre) {
+			cout << "Usuario ya existe";
+			return;
+		}
+	usuarios[nUsuarios].nombre = nombre;
+	cout << "Ingrese contrasenia: ";
+	cin >> usuarios[nUsuarios].clave;
+	nUsuarios++;
+
+	cout << "Usuario registrado" << endl;
+}
+
+bool login() {
+	string nobmre, clave; 
+	cout << "\n Iniciar sesion \n";
+	cout << "Uusario: ";
+	cin >> nombre;
+	cout << "Contrasnia: ";
+	cin >> clave;
+	for (int i = 0; i < nUsuarios; i++) {
+		if ((usuarios[i].nombre == nombre) && (usuarios[i].clave)) {
+			cout << "Bienvenido" << nombre;
+			return true;
+		}
+	}
+	cout << "Usuario o contrasenia incorrectas \n";
+	return false;
+}
+
+
