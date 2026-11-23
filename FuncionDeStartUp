@@ -1,0 +1,11 @@
+function buscarBicisPorPresupuesto(zonaBuscada, presupuestoMax) {
+    let resultados = [];
+
+    for (let i = 0; i < bicis.length; i++) {
+        if (bicis[i].zona === zonaBuscada && bicis[i].precio <= presupuestoMax && bicis[i].disponible === true) {
+            resultados.push(bicis[i]);
+        }
+    }
+
+    return resultados;
+}
